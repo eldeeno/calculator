@@ -24,6 +24,15 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  var ansStr = 0;
+  final myController = TextEditingController();
+
+  @override
+  void dispose() {
+    myController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,8 +53,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 left: 20.0,
               ),
               child: TextField(
+                readOnly: true,
+                showCursor: true,
+                autofocus: true,
+                controller: myController,
                 textDirection: TextDirection.rtl,
-                cursorColor: Colors.transparent,
                 style: TextStyle(
                   fontSize: 45.0,
                   fontWeight: FontWeight.w400,
@@ -57,42 +69,60 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             Divider(
-              height: 150,
+              height: 155,
             ),
             Container(
-              padding: EdgeInsets.only(bottom: 25.0),
+              padding: EdgeInsets.only(bottom: 25.0, right: 25),
               child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Container(
-                    padding: EdgeInsets.only(right: 30.0, left: 20.0),
-                    child: FaIcon(
-                      FontAwesomeIcons.clock,
-                      color: Colors.white70,
-                      size: 18,
+                  Expanded(
+                    flex: 2,
+                    child: Column(
+                      children: <Widget>[
+                        FaIcon(
+                          FontAwesomeIcons.clock,
+                          color: Colors.white70,
+                          size: 18,
+                        ),
+                      ],
                     ),
                   ),
-                  Container(
-                    padding: EdgeInsets.only(right: 30.0, left: 10.0),
-                    child: FaIcon(
-                      FontAwesomeIcons.rulerHorizontal,
-                      color: Colors.white70,
-                      size: 18,
+                  Expanded(
+                    flex: 2,
+                    child: Column(
+                      children: <Widget>[
+                        FaIcon(
+                          FontAwesomeIcons.rulerHorizontal,
+                          color: Colors.white70,
+                          size: 18,
+                        ),
+                      ],
                     ),
                   ),
-                  Container(
-                    padding: EdgeInsets.only(right: 30.0, left: 10.0),
-                    child: FaIcon(
-                      FontAwesomeIcons.simCard,
-                      color: Colors.white70,
-                      size: 18,
+                  Expanded(
+                    flex: 2,
+                    child: Column(
+                      children: <Widget>[
+                        FaIcon(
+                          FontAwesomeIcons.simCard,
+                          color: Colors.white70,
+                          size: 18,
+                        ),
+                      ],
                     ),
                   ),
-                  Container(
-                    padding: EdgeInsets.only(right: 30.0, left: 120.0),
-                    child: FaIcon(
-                      FontAwesomeIcons.windowClose,
-                      color: Colors.lightGreenAccent,
-                      size: 18,
+                  Expanded(
+                    flex: 4,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: <Widget>[
+                        FaIcon(
+                          FontAwesomeIcons.windowClose,
+                          color: Colors.lightGreenAccent,
+                          size: 18,
+                        ),
+                      ],
                     ),
                   ),
                 ],
@@ -103,17 +133,32 @@ class _MyHomePageState extends State<MyHomePage> {
               thickness: 1,
             ),
             Container(
+              padding: EdgeInsets.only(top: 30.0),
               child: Wrap(
-                spacing: 10.0,
-                runSpacing: 4.0,
+                spacing: 16.0,
+                runSpacing: 16.0,
                 children: <Widget>[
                   _button1('C', Colors.orangeAccent, kColor1, () {}),
                   _button1('( )', kColor2, kColor1, () {}),
-                  _button1('%', kColor2, kColor1, () {}),
+                  _button1('%', kColor2, kColor1, () {
+                    myController.text = '%';
+                  }),
                   _button1('÷', kColor2, kColor1, () {}),
+                  _button1('9', Colors.white, kColor1, () {}),
+                  _button1('8', Colors.white, kColor1, () {}),
+                  _button1('7', Colors.white, kColor1, () {}),
                   _button1('x', kColor2, kColor1, () {}),
+                  _button1('6', Colors.white, kColor1, () {}),
+                  _button1('5', Colors.white, kColor1, () {}),
+                  _button1('4', Colors.white, kColor1, () {}),
                   _button1('-', kColor2, kColor1, () {}),
+                  _button1('3', Colors.white, kColor1, () {}),
+                  _button1('2', Colors.white, kColor1, () {}),
+                  _button1('1', Colors.white, kColor1, () {}),
                   _button1('+', kColor2, kColor1, () {}),
+                  _button1('+/-', Colors.white, kColor1, () {}),
+                  _button1('0', Colors.white, kColor1, () {}),
+                  _button1('.', Colors.white, kColor1, () {}),
                   _button1('=', Colors.white, kColor2, () {}),
                 ],
               ),
@@ -143,9 +188,10 @@ class _MyHomePageState extends State<MyHomePage> {
           number,
           style: TextStyle(
             color: textColor,
-            fontSize: 25.0,
+            fontSize: 28.0,
+            fontWeight: FontWeight.w500,
             fontFamily: 'Arial',
-            height: 1.2,
+            height: 1.3,
           ),
         ),
       ),
