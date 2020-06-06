@@ -138,27 +138,57 @@ class _MyHomePageState extends State<MyHomePage> {
                 spacing: 16.0,
                 runSpacing: 16.0,
                 children: <Widget>[
-                  _button1('C', Colors.orangeAccent, kColor1, () {}),
+                  _button1('C', Colors.orangeAccent, kColor1, () {
+                    myController.clear();
+                  }),
                   _button1('( )', kColor2, kColor1, () {}),
                   _button1('%', kColor2, kColor1, () {
                     myController.text = '%';
                   }),
                   _button1('÷', kColor2, kColor1, () {}),
-                  _button1('9', Colors.white, kColor1, () {}),
-                  _button1('8', Colors.white, kColor1, () {}),
-                  _button1('7', Colors.white, kColor1, () {}),
-                  _button1('x', kColor2, kColor1, () {}),
-                  _button1('6', Colors.white, kColor1, () {}),
-                  _button1('5', Colors.white, kColor1, () {}),
-                  _button1('4', Colors.white, kColor1, () {}),
-                  _button1('-', kColor2, kColor1, () {}),
-                  _button1('3', Colors.white, kColor1, () {}),
-                  _button1('2', Colors.white, kColor1, () {}),
-                  _button1('1', Colors.white, kColor1, () {}),
-                  _button1('+', kColor2, kColor1, () {}),
+                  _button1('9', Colors.white, kColor1, () {
+                    myController.text += '9';
+                  }),
+                  _button1('8', Colors.white, kColor1, () {
+                    myController.text += '8';
+                  }),
+                  _button1('7', Colors.white, kColor1, () {
+                    myController.text += '7';
+                  }),
+                  _button1('x', kColor2, kColor1, () {
+                    myController.text += 'x';
+                  }),
+                  _button1('6', Colors.white, kColor1, () {
+                    myController.text += '6';
+                  }),
+                  _button1('5', Colors.white, kColor1, () {
+                    myController.text += '5';
+                  }),
+                  _button1('4', Colors.white, kColor1, () {
+                    myController.text += '4';
+                  }),
+                  _button1('-', kColor2, kColor1, () {
+                    myController.text += '-';
+                  }),
+                  _button1('3', Colors.white, kColor1, () {
+                    myController.text += '3';
+                  }),
+                  _button1('2', Colors.white, kColor1, () {
+                    myController.text += '2';
+                  }),
+                  _button1('1', Colors.white, kColor1, () {
+                    myController.text += '1';
+                  }),
+                  _button1('+', kColor2, kColor1, () {
+                    myController.text += '+';
+                  }),
                   _button1('+/-', Colors.white, kColor1, () {}),
-                  _button1('0', Colors.white, kColor1, () {}),
-                  _button1('.', Colors.white, kColor1, () {}),
+                  _button1('0', Colors.white, kColor1, () {
+                    myController.text += '0';
+                  }),
+                  _button1('.', Colors.white, kColor1, () {
+                    myController.text += '.';
+                  }),
                   _button1('=', Colors.white, kColor2, () {}),
                 ],
               ),
