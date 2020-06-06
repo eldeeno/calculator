@@ -105,61 +105,48 @@ class _MyHomePageState extends State<MyHomePage> {
             Container(
               child: Wrap(
                 spacing: 10.0,
-                runSpacing: 5.0,
+                runSpacing: 4.0,
                 children: <Widget>[
-                  Container(
-                    height: 65,
-                    child: FlatButton(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(50.0),
-                        side: BorderSide(
-                          width: 0.3,
-                          color: Colors.white30,
-                        ),
-                      ),
-                      onPressed: () {},
-                      color: kButtonColor1,
-                      textColor: Colors.white,
-                      child: Text(
-                        "C",
-                        style: TextStyle(
-                          color: Colors.orangeAccent,
-                          fontSize: 25.0,
-                          fontFamily: 'Arial',
-                          height: 1.2,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    height: 65,
-                    child: FlatButton(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(50.0),
-                        side: BorderSide(
-                          width: 0.3,
-                          color: Colors.white30,
-                        ),
-                      ),
-                      onPressed: () {},
-                      color: kButtonColor2,
-                      textColor: Colors.white,
-                      child: Text(
-                        "=",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 30.0,
-                          fontFamily: 'Arial',
-                          height: 1.2,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ),
+                  _button1('C', Colors.orangeAccent, kColor1, () {}),
+                  _button1('( )', kColor2, kColor1, () {}),
+                  _button1('%', kColor2, kColor1, () {}),
+                  _button1('÷', kColor2, kColor1, () {}),
+                  _button1('x', kColor2, kColor1, () {}),
+                  _button1('-', kColor2, kColor1, () {}),
+                  _button1('+', kColor2, kColor1, () {}),
+                  _button1('=', Colors.white, kColor2, () {}),
                 ],
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+
+  Widget _button1(String number, Color textColor, Color bgColor, Function() f) {
+    return Container(
+      height: 65,
+      width: 80,
+      child: FlatButton(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(50.0),
+          side: BorderSide(
+            width: 0.3,
+            color: Colors.white30,
+          ),
+        ),
+        onPressed: f,
+        color: bgColor,
+        textColor: Colors.white,
+        child: Text(
+          number,
+          style: TextStyle(
+            color: textColor,
+            fontSize: 25.0,
+            fontFamily: 'Arial',
+            height: 1.2,
+          ),
         ),
       ),
     );
