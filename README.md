@@ -1,6 +1,6 @@
 # calculator
 
-A new Flutter application.
+A replica of Samsung Calculator.
 
 ## Getting Started
 
