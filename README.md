@@ -1,6 +1,6 @@
 # calculator
 
-A replica of Samsung Calculator.
+A replica of Samsung Calculator using flutter.
 
 ## Getting Started
 
